@@ -1,6 +1,6 @@
 ### CVWhisper: the Vagabond AI
 
-Created for https://ethberlin.org
+Created for https://ethberlin.org, see the details here https://verifiedanonymous-proof--6ptjwkb.gamma.site
 
 A cheap and reasonably anonymous proof of work record.
 
