@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employment Status History</title>
+</head>
+<body>
+<h1>Employment Status History</h1>
+
+<form action="/employment-status-history" method="GET">
+    <label for="address">Enter Address:</label>
+    <input type="text" id="address" name="address">
+    <button type="submit">Search</button>
+</form>
+
+<div id="history">
+    <% if (history) { %>
+        <% history.forEach(item => { %>
+            <div class="record">
+                <p>Address: <%= item.address %></p>
+                <p>Timestamp: <%= item.timestamp %></p>
+                <p>Changer: <%= item.changer %></p>
+                <p>Status: <%= item.status ? 'Employed' : 'Unemployed' %></p>
+                <p>Job Description: <%= item.jobDescription %></p>
+            </div>
+        <% }); %>
+    <% } %>
+</div>
+</body>
+</html>

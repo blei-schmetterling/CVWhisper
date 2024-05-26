@@ -1,0 +1,29 @@
+const { ethers } = require("ethers");
+const fs = require("fs");
+
+async function main() {
+const provider = new ethers.providers.JsonRpcProvider("http://localhost:8545");
+const signer = provider.getSigner();
+
+const contractAddress = ""; // Замените на адрес развернутого контракта
+const contractAbi = JSON.parse(fs.readFileSync("./artifacts/contracts/JobContract.sol/JobContract.json").toString()).abi;
+const contract = new ethers.Contract(contractAddress, contractAbi, signer);
+
+const employeeAddress = ""; // Замените на адрес сотрудника
+const employmentStatus = true; // Замените на желаемый статус занятости
+const tx = await contract.setEmploymentStatus(employeeAddress, employmentStatus);
+await tx.wait();
+
+const currentEmploymentStatus = await contract.getEmploymentStatus(employeeAddress);
+console.log("Current employment status:", currentEmploymentStatus);
+
+const employmentStatusHistory = await contract.getEmploymentStatusHistory(employeeAddress);
+console.log("Employment status history:", employmentStatusHistory);
+}
+
+main()
+.then(() => process.exit(0))
+.catch(error => {
+console.error(error);
+process.exit(1);
+});

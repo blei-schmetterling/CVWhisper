@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Employment Status</title>
+</head>
+<body>
+<h1>Set Employment Status</h1>
+
+<form action="/set-employment-status" method="POST">
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address">
+    <label for="status">Status:</label>
+    <select id="status" name="status">
+        <option value="true">Employed</option>
+        <option value="false">Unemployed</option>
+    </select>
+    <label for="jobDescription">Job Description:</label>
+    <input type="text" id="jobDescription" name="jobDescription">
+    <button type="submit">Set Employment Status</button>
+</form>
+</body>
+</html>
